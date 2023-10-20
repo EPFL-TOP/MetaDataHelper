@@ -1,6 +1,6 @@
-data_dirs=["analysis_files", "configuration_files", "raw_files"]
+data_dirs=["other_files", "raw_files"]
 
-data_types={"microscopy":["in_vivo","in_vitro"], "sequencing":["CUTandTAG","scRNA-seq","scMultiome-seq"]}
+data_types={"microscopy":["cell_culture", "explants", "fixed_embryos", "live_embryos"], "sequencing":["CUTandTAG","scRNA-seq","scMultiome-seq"]}
 
 
 metadata_common = {

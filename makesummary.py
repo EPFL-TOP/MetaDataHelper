@@ -4,7 +4,7 @@ import json
 import datetime
 import commons as cm
 
-path = "/Volumes/upoates-raw/raw_data/"
+path = "/Volumes/upoates/raw_data/"
 
 try:
     os.listdir(path)
@@ -21,22 +21,22 @@ for key in data_type:
     #list sub data types
     for type in data_type[key]:
         #list projects
-        for proj in os.listdir(os.path.join(path,key,type)):
-            if proj[0]=='.':continue
+        #for proj in os.listdir(os.path.join(path,key,type)):
+        #    if proj[0]=='.':continue
             #list experiments
-            for exp in os.listdir(os.path.join(path,key,type,proj)):
-                if exp[0]=='.':continue
+        for exp in os.listdir(os.path.join(path,key,type)):
+            if exp[0]=='.':continue
 
-                basedir=os.path.join(path, key, type, proj, exp)
-                basefile=os.path.join(basedir,'metadata.json')
-                if not os.path.isfile(basefile):
-                    print('metadata missing in ',basedir)
-                else:
-                    f = open(basefile)
-                    data = json.load(f)
-                    outdicttmp={}
-                    outdicttmp[basedir]=data
-                    outdictlist.append(outdicttmp)
+            basedir=os.path.join(path, key, type, exp)
+            basefile=os.path.join(basedir,'metadata.json')
+            if not os.path.isfile(basefile):
+                print('metadata missing in ',basedir)
+            else:
+                f = open(basefile)
+                data = json.load(f)
+                outdicttmp={}
+                outdicttmp[basedir]=data
+                outdictlist.append(outdicttmp)
 
 summaryname="metadatasummary"
 latest=glob.glob(os.path.join(path,"metadata",summaryname+"*_latest.json"))
