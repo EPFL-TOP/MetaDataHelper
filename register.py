@@ -40,7 +40,7 @@ def add_data(input):
         for root,d_names,f_names in os.walk(cdir):
             for f in f_names:
                 ftmp=os.path.join(root, f)
-                fname.append(ftmp.replace(cdir,''))
+                fname.append(ftmp.replace(cdir+'/',''))
 
 
         files=os.listdir(cdir)
