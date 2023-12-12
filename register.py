@@ -35,7 +35,15 @@ def add_data(input):
         else:
             print('--> Already exists:   ',cdir)
         print('--> Listing files')
+
+        fname = []
+        for root,d_names,f_names in os.walk(cdir):
+	        for f in f_names:
+		        fname.append(os.path.join(root, f))
+
+
         files=os.listdir(cdir)
+        files=fname
         for f in files:
             filedic={}
             if f[0]=='.':continue
