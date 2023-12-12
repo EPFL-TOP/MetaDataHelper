@@ -38,8 +38,10 @@ def add_data(input):
 
         fname = []
         for root,d_names,f_names in os.walk(cdir):
-	        for f in f_names:
-		        fname.append(os.path.join(root, f))
+            for f in f_names:
+                ftmp=os.path.join(root, f)
+                ftmp.replace(cdir,'')
+                fname.append(ftmp)
 
 
         files=os.listdir(cdir)
